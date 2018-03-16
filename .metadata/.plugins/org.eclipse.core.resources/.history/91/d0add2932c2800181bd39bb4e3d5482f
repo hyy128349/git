@@ -1,0 +1,29 @@
+package cn.yunhe.ssm.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cn.yunhe.ssm.dao.UserDao;
+import cn.yunhe.ssm.entity.User;
+import cn.yunhe.ssm.service.IUserService;
+@Service("smokeService")
+public class UserServiceImpl implements IUserService {
+	@Autowired
+	private UserDao userDao;
+
+	@Override
+	public User validateUser(User user) {
+		User user1 = null;
+		user1 = userDao.getUser(user);
+		if(user1!=null){
+			if(user1.getUname().equals(user.getUname())&&user1.getUpwd().equals(user.getUpwd())){
+			return user1;
+			}else{
+				return null;
+			}
+		}
+		return user1;
+		
+	}
+	
+}

@@ -1,0 +1,22 @@
+package cn.yunhe.ssm.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cn.yunhe.ssm.dao.SmokeDao;
+import cn.yunhe.ssm.entity.Smoke;
+import cn.yunhe.ssm.service.ISmokeService;
+@Service("smokeService")
+public class SmokeServiceImpl implements ISmokeService {
+	@Autowired
+	private SmokeDao smokeDao;
+	@Override
+	public List<Smoke> getListTypeSmoke() {
+		List<Smoke> slist = new ArrayList<Smoke>();
+		slist = smokeDao.getSmokeList();
+		return slist;
+	}
+}

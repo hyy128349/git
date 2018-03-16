@@ -1,0 +1,14 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="yunhe-user" namespace="/user" extends="yunhe-default">
+		
+		<action name="login" class="cn.yunhe.ssm.action.UserAction" method="goLoginPage">
+			<result>/login.html</result>
+		</action>
+		<action name="toLogin" class="cn.yunhe.ssm.action.UserAction" method="loginToPage">
+			<result name="success" type="redirectAction">/smoke/getPage</result>
+		</action>
+	</package>
+</struts>
